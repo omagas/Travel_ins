@@ -1,0 +1,124 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="prdt-gtl2" namespace="/action/prdt/GTL2" extends="base">
+        <action name="quot" class="com.zurich.sds.action.prdt.gtl2.QuotAction">
+            <result name="input">/Prdt/Quot_GTL2_Input.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>
+        <action name="broker" class="com.zurich.sds.action.prdt.gtl2.QuotAction">
+            <result name="input">/Prdt/Quot_GTL2_Input_broker.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>  
+ 
+        <action name="Inq_broker" class="com.zurich.sds.action.prdt.gtl2.QuotAction">
+            <result name="input">/Prdt/Inq_GTL2_Income_broker.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>    
+        
+        <action name="quot_calc" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="calculate">
+            <result name="success">/Prdt/Quot_GTL2_Result.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>
+        <action name="quot_chgPrm" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="chgPrm">
+            <result name="success">/Prdt/Quot_GTL2_Result.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>
+        
+        <action name="quot_SumitIns" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="SumitIns">
+            <result name="success">/Prdt/Invite_GTL2_Result.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>        
+        <action name="quot_foreEmg" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="foreEmg">
+            <result name="success">/Prdt/Quot_GTL2_foreEmg.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>        
+        
+        <action name="quot_edit" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="edit">
+            <result type="json">
+                <param name="root">msgHTML</param>
+            </result>
+        </action>
+        <action name="quot_mail" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="mail">
+            <result type="json">
+                <param name="root">htmlMessageMap</param> 
+            </result>
+        </action>
+        <action name="quot_query" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="query">
+            <result type="json">
+                <param name="root">qryAppGPAIncomeDtList</param>
+            </result>
+        </action>
+        <action name="quot_showUploadFile" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="showUploadFile">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="contentDisposition">attachment;filename="${uploadFileNm}"</param>
+                <param name="inputName">fis</param>
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+        <action name="quot_showPDF" class="com.zurich.sds.action.prdt.gtl2.QuotAction" method="showPDF">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="contentDisposition">attachment;filename="${uploadFileNm}"</param>
+                <param name="inputName">inputStream</param>                 
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>      
+        
+        <action name="invite" class="com.zurich.sds.action.prdt.gtl2.InviteAction">
+            <result name="input">/Prdt/Invite_GTL2_Input.jsp</result>
+        </action>     
+        
+        <action name="invite_broker" class="com.zurich.sds.action.prdt.gtl2.InviteAction">
+            <result name="input">/Prdt/Invite_GTL2_Input_broker.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>     
+        </action> 
+        
+          
+        
+        <action name="invite_saveData" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="saveData">
+            <result name="success">/Prdt/Invite_GTL2_Input.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>
+        
+        <action name="invite_Pay" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="Payment">
+            <result name="success">/Paymnt/Paymnt_GTL2_input.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>        
+        
+        <action name="invite_chgPrm" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="chgPrm">
+            <result name="success">/Prdt/Invite_GTL2_Input.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>
+        </action>
+
+        <action name="SendCPC" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="SendCPC">
+            <result name="input">/Prdt/CPC_GTL2_input.jsp</result>
+        </action>
+
+        <action name="invite_CPCF" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="CPCFinish">
+            <result name="success">/Prdt/Invite_GTL2_certifi.jsp</result>
+            <result name="login" type="redirect">/Login/login.jsp</result>            
+        </action>
+
+        <action name="invite_query" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="query">
+            <result type="json">
+                <param name="root">qryAppGPAIncomeDtList</param>
+            </result>
+        </action>   
+        
+        
+        
+        <action name="invite_showPDF" class="com.zurich.sds.action.prdt.gtl2.InviteAction" method="showPDF">
+            <result type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="contentDisposition">attachment;filename="${uploadFileNm}"</param>
+                <param name="inputName">inputStream</param>
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+     
+        
+    </package>
+</struts>
